@@ -5,11 +5,13 @@ using System.Collections.Generic;
 
 public class RobotDreamsEditorTarget : TargetRules
 {
-	public RobotDreamsEditorTarget(TargetInfo Target) : base(Target)
-	{
-		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V5;
+    public RobotDreamsEditorTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Editor;
 
-		ExtraModuleNames.AddRange( new string[] { "RobotDreams" } );
-	}
+        DefaultBuildSettings = BuildSettingsVersion.V6;
+        IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_7;
+
+        ExtraModuleNames.AddRange(new string[] { "RobotDreams" });
+    }
 }
