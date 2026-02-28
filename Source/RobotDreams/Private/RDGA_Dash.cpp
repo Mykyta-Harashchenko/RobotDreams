@@ -40,7 +40,13 @@ void URDGA_Dash::ActivateAbility(
 
 	// 1) Рывок (импульс вперёд)
 	const FVector Forward = Char->GetActorForwardVector();
+	UE_LOG(LogTemp, Warning, TEXT("DashStrength=%f, VelBefore=%s, Role=%d"),
+		DashStrength,
+		*Char->GetVelocity().ToString(),
+		(int32)Char->GetLocalRole());
 	Char->LaunchCharacter(Forward * DashStrength, /*XYOverride*/ true, /*ZOverride*/ false);
+	UE_LOG(LogTemp, Warning, TEXT("VelAfter=%s"), *Char->GetVelocity().ToString());
+
 
 	// 2) Ставим "кулдаун" тег на 15 секунд через loose tag + таймер
 	ASC->AddLooseGameplayTag(CooldownTag);
